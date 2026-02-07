@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dal Delight - Buy Lentils Online</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #8B4513; color: white; padding: 20px; text-align: center; }
+        nav { background-color: #D2691E; padding: 10px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        section { padding: 20px; max-width: 800px; margin: auto; background: white; margin-bottom: 20px; border-radius: 8px; }
+        h2 { color: #8B4513; }
+        img { max-width: 100%; height: auto; border-radius: 8px; }
+        .product { border: 1px solid #ddd; padding: 10px; margin: 10px 0; display: flex; align-items: center; }
+        .product img { width: 100px; margin-right: 20px; }
+        button { background-color: #8B4513; color: white; border: none; padding: 10px; cursor: pointer; }
+        #cart { display: none; }
+        footer { background-color: #8B4513; color: white; text-align: center; padding: 10px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dal Delight</h1>
+        <p>Buy premium lentils online – nutritious and delicious!</p>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#cart">Cart</a>
+        <a href="#checkout">Checkout</a>
+        <a href="#health">Health & Nutrition</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <section id="home">
+        <h2>Welcome to Dal Delight</h2>
+        <p>Discover and buy high-quality dals. Free shipping on orders over ₹500!</p>
+        <img src="https://images.unsplash.com/photo-1582515073490-39981397c445?w=800" alt="Assorted dals">
+    </section>
+
+    <section id="shop">
+        <h2>Shop Our Dals</h2>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=400" alt="Toor Dal lentils">
+            <div>
+                <h3>Toor Dal (Pigeon Pea) - ₹40/kg</h3>
+                <p>Yellow, split lentils for sambar. High in protein.</p>
+                <button onclick="addToCart('Toor Dal', 40)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1582515073490-39981397c445?w=400" alt="Moong Dal lentils">
+            <div>
+                <h3>Moong Dal (Mung Bean) - ₹50/kg</h3>
+                <p>Green or yellow, quick-cooking. Rich in vitamins.</p>
+                <button onclick="addToCart('Moong Dal', 50)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1594736797933-d0c9d6d9e87a?w=400" alt="Urad Dal lentils">
+            <div>
+                <h3>Urad Dal (Black Gram) - ₹60/kg</h3>
+                <p>Black or white, for dosa. Protein-packed.</p>
+                <button onclick="addToCart('Urad Dal', 60)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1551468748-2ac7bd8d8b91?w=400" alt="Chana Dal lentils">
+            <div>
+                <h3>Chana Dal (Bengal Gram) - ₹70/kg</h3>
+                <p>Nutty flavor for curries. High in iron.</p>
+                <button onclick="addToCart('Chana Dal', 70)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400" alt="Masoor Dal lentils">
+            <div>
+                <h3>Masoor Dal (Red Lentil) - ₹80/kg</h3>
+                <p>Fast-cooking red lentils. Excellent protein source.</p>
+                <button onclick="addToCart('Masoor Dal', 80)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1551782450-17144efb5723?w=400" alt="Rajma beans">
+            <div>
+                <h3>Rajma (Kidney Bean) - ₹55/kg</h3>
+                <p>Red beans for curries. High in antioxidants.</p>
+                <button onclick="addToCart('Rajma', 55)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <p>Total: ₹<span id="total">0.00</span></p>
+        <button onclick="showCheckout()">Proceed to Checkout</button>
+    </section>
+
+    <section id="checkout" style="display: none;">
+        <h2>Checkout</h2>
+        <form id="checkout-form">
+            <label>Name: <input type="text" required></label><br>
+            <label>Address: <textarea required></textarea></label><br>
+            <label>Payment: <input type="text" placeholder="Card details (integrate with Razorpay or Stripe)" required></label><br>
+            <button type="submit">Place Order</button>
+        </form>
+        <p>Note: Integrate with a real payment processor like Razorpay (popular in India) for security.</p>
+    </section>
+
+    <section id="health">
+        <h2>Health & Nutrition</h2>
+        <p>Dals are low in fat, high in protein, fiber, iron, and folate. They support heart health, digestion, and weight management. One cup of cooked lentils provides ~18g protein.</p>
+        <ul>
+            <li>Protein: Builds muscle and repairs tissues.</li>
+            <li>Fiber: Aids digestion and lowers cholesterol.</li>
+            <li>Iron: Prevents anemia.</li>
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>About This Site</h2>
+        <p>We source organic dals. Shipping worldwide. Contact us for bulk orders.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Dal Delight. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+            // Send WhatsApp message
+            const message = `Order: ${name} - ₹${price}/kg. Please confirm and provide details.`;
+            const whatsappUrl = `https://wa.me/918766654225?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            let total = 0;
+            cart.forEach(item => {
+                cartItems.innerHTML += `<p>${item.name} - ₹${item.price}</p>`;
+                total += item.price;
+            });
+            document.getElementById('total').textContent = total.toFixed(2);
+            document.getElementById('cart').style.display = cart.length ? 'block' : 'none';
+        }
+        function showCheckout() {
+            document.getElementById('checkout').style.display = 'block';
+        }
+        document.getElementById('checkout-form').addEventListener('submit', e => {
+            e.preventDefault();
+            alert('Order placed! (Demo only - integrate real payment)');
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+            document.getElementById('checkout').style.display = 'none';
+        });
+        updateCart();
+    </script>
+</body>
+</html>
